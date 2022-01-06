@@ -57,6 +57,18 @@ app.get("/skills", async (req, res) => {
   }
 });
 
+app.get("/resume/download", (req, res) => {
+  try {
+    if (req.query.english === "true") {
+      res.status(200).download("./RESUME.pdf");
+    } else {
+      res.status(200).download("./CV.pdf");
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Page not found" });
 });
