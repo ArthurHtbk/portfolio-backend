@@ -86,6 +86,15 @@ app.post("/create/project", async (req, res) => {
   }
 });
 
+app.get("/projects", async (req, res) => {
+  try {
+    const projects = await Project.find();
+    res.status(200).json(projects);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Page not found" });
 });
