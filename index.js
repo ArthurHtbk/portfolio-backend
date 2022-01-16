@@ -6,6 +6,7 @@ const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
 
 const Skill = require("./Models/Skill");
+const Project = require("./Models/Project");
 
 const app = express();
 app.use(formidable());
@@ -64,6 +65,22 @@ app.get("/resume/download", (req, res) => {
     } else {
       res.status(200).download("./CV.pdf");
     }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+app.post("/create/project", async (req, res) => {
+  try {
+    const newProject = new Project({
+      name: req.fields.name,
+    });
+    const result = await cloudinary.uploader.upload(req.files.image.path, {
+      folder: `/portfolio/project/${newProject._id}`,
+    });
+    newProject.image = result;
+    await newProject.save();
+    res.status(200).json(newProject);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
