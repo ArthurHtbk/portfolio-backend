@@ -4,6 +4,7 @@ const formidable = require("express-formidable");
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 
 const Skill = require("./Models/Skill");
 const Project = require("./Models/Project");
@@ -93,6 +94,31 @@ app.get("/projects", async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
+});
+
+app.post("/contact", (req, res) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_ADDRESS,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  });
+  const mailOptions = {
+    from: `${req.fields.firstname} ${req.fields.lastname} <${req.fields.email}>`,
+    to: process.env.EMAIL_ADDRESS,
+    subject: `${req.fields.subject} (sent by ${req.fields.email})`,
+    text: req.fields.message,
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.send("error");
+    } else {
+      console.log("Success: " + info.response);
+      res.send("success");
+    }
+  });
 });
 
 app.all("*", (req, res) => {
