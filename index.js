@@ -98,7 +98,9 @@ app.get("/projects", async (req, res) => {
 
 app.post("/contact", (req, res) => {
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    name: process.env.DOMAIN_NAME,
+    host: "ssl0.ovh.net",
+    port: 465,
     auth: {
       user: process.env.EMAIL_ADDRESS,
       pass: process.env.EMAIL_PASSWORD,
