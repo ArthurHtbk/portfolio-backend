@@ -45,29 +45,6 @@ Send a message to my email address.
 - [Mongoose](https://www.npmjs.com/package/mongoose)
 - [Nodemailer](https://www.npmjs.com/package/nodemailer)
 
-## Make yourself at home
-
-Feel free to use this repository!
-
-### Clone
-
-```bash
-git clone https://github.com/ArthurHtbk/portfolio-backend.git
-cd portfolio-backend
-```
-
-### Install packages & dependencies
-
-```bash
-npm install
-```
-
-### Run in development mode
-
-```bash
-nodemon index.js
-```
-
 ## Pay them a visit!
 
 - **[My portfolio](https://arthur-heurtebise.netlify.app/)**
