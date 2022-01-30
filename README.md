@@ -47,7 +47,7 @@ Send a message to my email address.
 - [Mongoose](https://www.npmjs.com/package/mongoose)
 - [Nodemailer](https://www.npmjs.com/package/nodemailer)
 
-## Pay them a visit!
+## Check this out!
 
 - **[My portfolio](https://arthur-heurtebise.netlify.app/)**
 - **The corresponding [front-end repository](https://github.com/ArthurHtbk/my-portfolio)**
