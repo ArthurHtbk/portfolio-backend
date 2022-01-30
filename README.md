@@ -4,6 +4,8 @@ Welcome to the back-end repository of my portfolio!
 
 ## How to use
 
+Please ignore all routes that are not listed below, they are for maintenance only.
+
 ### /skills (GET)
 
 Get a list of skills. No query/param needed.
