@@ -64,7 +64,7 @@ app.get("/resume/download", (req, res) => {
     if (req.query.english === "true") {
       res.status(200).download("./Resume_Arthur_Heurtebise.pdf");
     } else {
-      res.status(200).download("./CV_Arthur_Heurtebise.pdf");
+      res.status(200).download("./CVArthurHeurtebise.pdf");
     }
   } catch (error) {
     res.status(400).json({ message: error.message });
