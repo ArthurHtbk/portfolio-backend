@@ -62,7 +62,7 @@ app.get("/skills", async (req, res) => {
 app.get("/resume/download", (req, res) => {
   try {
     if (req.query.english === "true") {
-      res.status(200).download("./Resume_Arthur_Heurtebise.pdf");
+      res.status(200).download("./ResumeArthurHeurtebise.pdf");
     } else {
       res.status(200).download("./CVArthurHeurtebise.pdf");
     }
